@@ -12,9 +12,10 @@ def initialise_pir():
 def read_pir():
     motion_detected = GPIO.input(PIR_PIN)
     if motion_detected:
-        time.sleep(0.1)  # Short delay to filter out the noise
+        time.sleep(0.2)  # Short delay to filter out the noise
         motion_detected = GPIO.input(PIR_PIN)  # Read PIR sensor again
     return motion_detected
+
 
 if __name__ == "__main__":
     try:
@@ -25,7 +26,7 @@ if __name__ == "__main__":
 
         while True:
             print(read_pir())
-            time.sleep(0.5)
+            time.sleep(0.2)
 
     except KeyboardInterrupt:
         print("Quitting")
